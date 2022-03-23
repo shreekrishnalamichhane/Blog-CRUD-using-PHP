@@ -1,5 +1,6 @@
 <?php
 require('./database/connection.php');
+require('./partials/variables.php');
 $title = '';
 $description = '';
 $image = '';
@@ -71,7 +72,7 @@ if (isset($_GET['id'])) {
 
           <div class="mb-3">
             <label for="" class="form-label">Previous Image</label><br>
-            <img class="rounded pb-3" src="<?php echo $image ?>" alt="">
+            <img class="rounded pb-3" src="<?php echo $app_path ;?><?php echo $image ?>" alt="" width="150px" height="auto">
             <br>
             <label for="image" class="form-label">Upload Image (Optional)</label>
             <br>

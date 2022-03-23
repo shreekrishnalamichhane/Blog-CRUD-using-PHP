@@ -1,3 +1,7 @@
+<?php
+require('./partials/variables.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +13,7 @@
   <?php
   require './partials/styles.php';
   ?>
-  <link rel="stylesheet" href="./assets/vendor/simplemde/css/simplemde.min.css">
+  <link rel="stylesheet" href="<?php echo $app_path ;?>/assets/vendor/simplemde/css/simplemde.min.css">
 </head>
 
 <body>

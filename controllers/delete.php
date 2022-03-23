@@ -1,22 +1,15 @@
 <?php
 require('../partials/session.php');
 require('../database/connection.php');
+require('../partials/variables.php');
+
 $id = $_POST['id'];
 
 $message = '';
 
 $sql = "SELECT * FROM `posts` WHERE id=" . $id . ";";
 $post = mysqli_query($connection, $sql);
-if (mysqli_num_rows($post) > 0) {
-  while ($row = mysqli_fetch_assoc($post)) {
-    if (file_exists($row["image"])) {
-      unlink($row["image"]);
-      $message = 'Image Deleted Successfully.';
-    }
-  }
-} else {
-  $message = 'Image couldnot be deleted.';
-}
+
 $sql = "DELETE FROM `posts` WHERE id=" . $id . ";";
 
 $result = $connection->query($sql);

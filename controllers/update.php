@@ -1,6 +1,7 @@
 <?php
 require('../partials/session.php');
 require('../database/connection.php');
+require('../partials/variables.php');
 $id = $_POST['id'];
 $title = $_POST['title'];
 $description = $_POST['description'];
@@ -36,7 +37,7 @@ if (isset($_POST['addBtn']) && $_POST['addBtn'] == 'Update') {
     } else {
       $message = 'Upload failed. Allowed file types: ' . implode(',', $allowedfileExtensions);
     }
-    $sql = "UPDATE `posts` SET title='" . $title . "', description='" . $description . "', image='" . $dest_path . "' WHERE id='" . $id . "';";
+    $sql = "UPDATE `posts` SET title='" . $title . "', description='" . $description . "', image='" . '/storage/'.$newFileName . "' WHERE id='" . $id . "';";
   } else {
     $sql = "UPDATE `posts` SET title='" . $title . "' , description='" . $description . "' WHERE id='" . $id . "';";
   }

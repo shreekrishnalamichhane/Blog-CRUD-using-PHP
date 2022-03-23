@@ -1,5 +1,7 @@
 <?php
 require('./database/connection.php');
+require('./partials/variables.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +24,7 @@ require('./database/connection.php');
     ?>
 
     <div class="py-3 d-flex justify-content-end">
-      <a href="/create.php" class="btn btn-success rounded-0"> Add New Blog</a>
+      <a href="create.php" class="btn btn-success rounded-0"> Add New Blog</a>
     </div>
 
     <?php
@@ -50,7 +52,7 @@ require('./database/connection.php');
               <?php
               if (isset($post['image']) && $post['image']) {
               ?>
-                <td><img src="<?php echo $post['image'] ?>" alt="<?php echo $post['title'] ?>" class="rounded" width="150px" height="auto"></td>
+                <td><img src="<?php echo $app_path ;?><?php echo $post['image'] ?>" alt="<?php echo $post['title'] ?>" class="rounded" width="150px" height="auto"></td>
               <?php
               } else {
               ?>

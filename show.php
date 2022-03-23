@@ -1,6 +1,7 @@
 <?php
 require('./database/connection.php');
 require('./assets/vendor/erusev-parsedown/Parsedown.php');
+require('./partials/variables.php');
 $Parsedown = new Parsedown();
 $title = '';
 $description = '';
@@ -56,7 +57,7 @@ if (isset($_GET['id'])) {
     } else {
     ?>
       <div class="container  w-50 my-5">
-        <img class="w-100" src="<?php echo $image ?>" width="20px" alt="">
+        <img class="w-100" src="<?php echo $app_path ;?><?php echo $image ?>" width="20px" alt="">
         <h2 class="mt-3 text-start "><?php echo $title ?></h2>
         <h6 class=" text-start"><?php echo $updated_at ?></h6>
         <p class="my-3 text-start"><?php echo $Parsedown->text($description) ?></p>

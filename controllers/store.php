@@ -1,6 +1,7 @@
 <?php
 require('../partials/session.php');
 require('../database/connection.php');
+require('../partials/variables.php');
 $title = $_POST['title'];
 $description = $_POST['description'];
 
@@ -39,7 +40,7 @@ if (isset($_POST['addBtn']) && $_POST['addBtn'] == 'Add') {
     $message = 'There is some error in the file upload. Please check the following error.<br>';
     $message .= 'Error:' . $_FILES['image']['error'];
   }
-  $sql = "INSERT INTO `posts` (`title`, `description`,`image`) VALUES ('" . $title . "','" . $description . "','" . $dest_path . "');";
+  $sql = "INSERT INTO `posts` (`title`, `description`,`image`) VALUES ('" . $title . "','" . $description . "','" . '/storage/'.$newFileName . "');";
 }
 
 // die($sql);

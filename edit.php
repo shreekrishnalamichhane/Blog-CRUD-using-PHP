@@ -31,7 +31,7 @@ if (isset($_GET['id'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Show | Blogs</title>
+  <title>Edit | Blogs</title>
   <?php
   require './partials/styles.php';
   ?>
@@ -39,7 +39,11 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-  <div class="container">
+<?php 
+  session_start();
+  if($_SESSION['loggedin'] && $_SESSION['loggedin'] == true){
+    ?>
+<div class="container">
     <?php
     require './partials/navbar.php';
     require './partials/message.php';
@@ -112,6 +116,9 @@ if (isset($_GET['id'])) {
       window.jQuery.SimpleMDEEditor.init()
     }();
   </script>
+    <?php }else{
+      header("location: login.php");
+    }?>
 </body>
 
 </html>

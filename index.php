@@ -17,7 +17,11 @@ require('./partials/variables.php');
 </head>
 
 <body>
-  <div class="container">
+  <?php 
+  session_start();
+  if($_SESSION['loggedin'] && $_SESSION['loggedin'] == true){
+    ?>
+    <div class="container">
     <?php
     require './partials/navbar.php';
     require './partials/message.php';
@@ -82,6 +86,10 @@ require('./partials/variables.php');
     }
     ?>
   </div>
+    <?php }else{
+      header("location: login.php");
+    }?>
+  
 </body>
 
 </html>
